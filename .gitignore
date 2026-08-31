@@ -5,6 +5,10 @@
 !.config/
 !.config/starship.toml
 
+# Ghostty
+!.config/ghostty
+!.config/ghostty/**
+
 # Noctalia v5
 !.local/
 !.local/state
