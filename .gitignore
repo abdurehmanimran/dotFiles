@@ -9,6 +9,10 @@
 !.config/ghostty
 !.config/ghostty/**
 
+# HyprLand
+!.config/hypr/
+!.config/hypr/**
+
 # Noctalia v5
 !.local/
 !.local/state
