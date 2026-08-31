@@ -1,0 +1,55 @@
+add_newline = false
+
+format = """
+«$username\
+$hostname\
+» [in](lavender bold italic) \
+$directory\
+$line_break\
+$character"""
+
+right_format = """$all"""
+command_timeout = 1000
+
+[username]
+format = '[$user](blue bold)'
+show_always = true
+aliases = { "abdurehman" = "AbdurRehman" }
+
+[hostname]
+ssh_only = false
+format = '@[$hostname](green bold)'
+
+[directory]
+format = '[$path](yellow bold)'
+truncation_length = 100
+truncate_to_repo = false
+truncation_symbol = '…/'
+
+[character]
+vicmd_symbol = "[N] >>>"
+success_symbol = '[➜](lavender bold)'
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch) ]($style)'
+
+[aws]
+format = '[$symbol(profile: "$profile" )(\(region: $region\) )]($style)'
+disabled = false
+style = 'bold blue'
+symbol = " "
+
+[golang]
+format = '[ ](bold cyan)'
+
+[kubernetes]
+symbol = '☸ '
+disabled = true
+detect_files = ['Dockerfile']
+format = '[$symbol$context( \($namespace\))]($style) '
+contexts = [
+  { context_pattern = "arn:aws:eks:us-west-2:577926974532:cluster/zd-pvc-omer", style = "green", context_alias = "omerxx", symbol = " " },
+]
+
+[docker_context]
+disabled = true
