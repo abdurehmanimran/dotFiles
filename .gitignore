@@ -2,3 +2,8 @@
 *
 
 !.gitignore
+# Noctalia v5
+!.local/
+!.local/state
+!.local/state/noctalia/
+!.local/state/noctalia/**

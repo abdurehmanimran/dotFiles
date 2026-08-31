@@ -1,0 +1,307 @@
+config_version = 13
+
+[accessibility]
+ui_scale = 1.0500000081956387
+
+[audio]
+enable_overdrive = true
+
+[bar.default]
+background_opacity = 0.74999998323619366
+capsule = true
+capsule_opacity = 0.63999998569488525
+capsule_padding = 9.0
+capsule_thickness = 0.80999998562037945
+center = [ "clipboard", "clock", "notifications" ]
+concave_edge_corners = false
+contact_shadow = true
+end = [ "tray", "group:g1", "group:g2", "battery", "control-center", "session" ]
+font_family = "JetBrainsMono NF"
+font_weight = 400
+margin_ends = 0
+panel_overlap = 0
+radius = 0
+scale = 1.1500000096857548
+shadow = false
+start = [ "launcher", "wallpaper", "workspaces", "audio_visualizer" ]
+thickness = 45
+
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
+    fill = "surface_variant"
+    id = "g1"
+    members = [ "temp", "cpu", "ram", "network_rx" ]
+    opacity = 0.47999998927116394
+    padding = 6.0
+
+    [[bar.default.capsule_group]]
+    accordion = false
+    accordion_direction = "end"
+    enabled = true
+    fill = "surface_variant"
+    id = "g2"
+    members = [ "network", "bluetooth", "volume", "brightness" ]
+    opacity = 0.47999998927116394
+    padding = 6.0
+
+[calendar]
+enabled = true
+
+    [calendar.account.arehmanimran4]
+    type = "google"
+
+[desktop_widgets]
+schema_version = 2
+widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-0000000000000002" ]
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000001]
+    box_height = 240.0
+    box_width = 416.0
+    cx = 1541.0
+    cy = 284.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
+        background = false
+        center_text = true
+        clock_style = "digital"
+        color = "on_surface_variant"
+        font_family = "AlQalam Taj Nastaleeq"
+        format = "{:%H:%M}"
+        shadow = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000002]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1547.0
+    cy = 398.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = -0.0
+    type = "clock"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
+        background = false
+        center_text = true
+        color = "on_surface_variant"
+        font_family = "AlQalam Taj Nastaleeq"
+        format = "{:%a %d  %h،  %Y}"
+        shadow = true
+
+[dock]
+auto_hide = true
+concave_edge_corners = false
+radius = 54
+reserve_space = false
+
+[location]
+address = "Lahore, Pakistan"
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000001", "lockscreen-widget-0000000000000002" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 256.0
+    box_width = 544.0
+    cx = 960.0
+    cy = 276.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = false
+        color = "on_surface_variant"
+        font_family = "AlQalam Taj Nastaleeq"
+        format = "{:%-I:%M %p}"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 112.0
+    box_width = 320.0
+    cx = 976.0
+    cy = 404.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background = false
+        color = "on_surface_variant"
+        font_family = "AlQalam Taj Nastaleeq"
+        format = "{:%a %d  %h،  %Y}"
+
+[osd]
+background_opacity = 0.69999998435378075
+offset_y = 40
+position = "bottom_center"
+scale = 1.0500000081956387
+
+[plugins]
+enabled = [ "kenn/keybind-cheatsheet" ]
+
+[shell]
+avatar_path = "/home/abdurehman/.face.png"
+font_family = "JetBrainsMono NF"
+password_style = "random"
+polkit_agent = true
+settings_window_translucent = true
+
+    [shell.keyboard_layout.custom_labels]
+    "Arabic (Macintosh, phonetic)" = "Ara"
+    "English (US)" = "Eng"
+    "Urdu (Pak Urdu Phonetic)" = "Urd"
+
+    [shell.launcher]
+    pinned = [ "brave-origin", "com.mitchellh.ghostty", "org.kde.dolphin" ]
+
+    [shell.panel]
+    borders = false
+    open_near_click_control_center = true
+    session_placement = "floating"
+    session_position = "center"
+    transparency_mode = "soft"
+    wallpaper_position = "center"
+
+    [shell.screenshot]
+    confirm_region = true
+    directory = "/home/abdurehman/Pictures/Screenshots"
+
+    [shell.session]
+    grid = true
+
+        [[shell.session.actions]]
+        action = "lock"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "1"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "lock_and_suspend"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "2"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "logout"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "3"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "reboot"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "4"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "shutdown"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "5"
+        variant = "destructive"
+
+        [[shell.session.actions]]
+        action = "command"
+        command = "notify-send 'Noctalia' 'Custom session entry'"
+        countdown_seconds = 0.0
+        enabled = false
+        variant = "default"
+
+[theme]
+source = "wallpaper"
+
+    [theme.templates]
+    builtin_ids = [ "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "qt" ]
+    community_ids = [ "brave", "zed", "fastfetch", "hyprtoolkit", "tmux" ]
+
+[wallpaper]
+directory = "/home/abdurehman/Pictures/Wallpapers"
+fill_mode = "span"
+transition = [ "disc", "honeycomb", "stripes", "wipe" ]
+transition_on_startup = true
+
+    [wallpaper.default]
+    path = "/home/abdurehman/Pictures/Wallpapers/ugolo6i3fg2h1.jpeg"
+
+    [wallpaper.last]
+    path = "/home/abdurehman/Pictures/Wallpapers/ugolo6i3fg2h1.jpeg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/abdurehman/Pictures/Wallpapers/ugolo6i3fg2h1.jpeg"
+
+[widget.audio_visualizer]
+bands = 19
+width = 115
+
+[widget.brightness]
+show_label = false
+
+[widget.clock]
+font_family = "AlQalam Taj Nastaleeq"
+format = "{:%-I:%M  %p %t %a %d  %h،  %Y}"
+scale = 1.2000000000000002
+timezone = "Asia/Karachi"
+
+[widget.sysmon]
+stat = "ram_used"
+
+[widget.volume]
+show_label = false
+
+[widget.workspaces]
+font_family = "JetBrainsMono NF"
+scale = 0.90000000000000002
