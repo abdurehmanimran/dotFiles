@@ -62,10 +62,10 @@ widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-000000000000
     visible = true
 
     [desktop_widgets.widget.desktop-widget-0000000000000001]
-    box_height = 240.0
-    box_width = 416.0
+    box_height = 256.0
+    box_width = 432.0
     cx = 1541.0
-    cy = 284.0
+    cy = 270.0
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -78,13 +78,13 @@ widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-000000000000
         clock_style = "digital"
         color = "on_surface_variant"
         font_family = "AlQalam Taj Nastaleeq"
-        format = "{:%H:%M}"
+        format = "{:%-I:%M %p}"
         shadow = true
 
     [desktop_widgets.widget.desktop-widget-0000000000000002]
     box_height = 0.0
     box_width = 0.0
-    cx = 1547.0
+    cx = 1541.0
     cy = 398.0
     output = "eDP-1"
     placement_height = 1080.0
@@ -97,7 +97,7 @@ widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-000000000000
         center_text = true
         color = "on_surface_variant"
         font_family = "AlQalam Taj Nastaleeq"
-        format = "{:%a %d  %h،  %Y}"
+        format = "{:%a  %d  %h،  %Y}"
         shadow = true
 
 [dock]
@@ -148,8 +148,8 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 256.0
-    box_width = 544.0
-    cx = 960.0
+    box_width = 576.0
+    cx = 976.0
     cy = 276.0
     output = "eDP-1"
     placement_height = 1080.0
@@ -178,7 +178,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
         background = false
         color = "on_surface_variant"
         font_family = "AlQalam Taj Nastaleeq"
-        format = "{:%a %d  %h،  %Y}"
+        format = "{:%a  %d  %h،  %Y}"
 
 [osd]
 background_opacity = 0.69999998435378075
@@ -241,25 +241,27 @@ settings_window_translucent = true
         variant = "default"
 
         [[shell.session.actions]]
+        action = "command"
+        command = "systemctl reboot --boot-loader-entry=auto-windows"
+        countdown_seconds = 0.0
+        enabled = true
+        label = "Windows"
+        shortcut = "4"
+        variant = "default"
+
+        [[shell.session.actions]]
         action = "reboot"
         countdown_seconds = 0.0
         enabled = true
-        shortcut = "4"
+        shortcut = "5"
         variant = "default"
 
         [[shell.session.actions]]
         action = "shutdown"
         countdown_seconds = 0.0
         enabled = true
-        shortcut = "5"
+        shortcut = "6"
         variant = "destructive"
-
-        [[shell.session.actions]]
-        action = "command"
-        command = "notify-send 'Noctalia' 'Custom session entry'"
-        countdown_seconds = 0.0
-        enabled = false
-        variant = "default"
 
 [theme]
 source = "wallpaper"
@@ -275,13 +277,13 @@ transition = [ "disc", "honeycomb", "stripes", "wipe" ]
 transition_on_startup = true
 
     [wallpaper.default]
-    path = "/home/abdurehman/Pictures/Wallpapers/ugolo6i3fg2h1.jpeg"
+    path = "/home/abdurehman/Pictures/Wallpapers/3840-x-2485-v0-nvuz4vgcmkhh1.webp"
 
     [wallpaper.last]
-    path = "/home/abdurehman/Pictures/Wallpapers/ugolo6i3fg2h1.jpeg"
+    path = "/home/abdurehman/Pictures/Wallpapers/3840-x-2485-v0-nvuz4vgcmkhh1.webp"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/abdurehman/Pictures/Wallpapers/ugolo6i3fg2h1.jpeg"
+    path = "/home/abdurehman/Pictures/Wallpapers/3840-x-2485-v0-nvuz4vgcmkhh1.webp"
 
 [widget.audio_visualizer]
 bands = 19

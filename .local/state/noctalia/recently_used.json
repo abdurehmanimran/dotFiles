@@ -1,10 +1,14 @@
 {
   "Applications": [
-    "/usr/share/applications/brave-origin.desktop",
-    "/usr/share/applications/dev.zed.Zed.desktop",
-    "/usr/share/applications/org.gnome.Papers.desktop",
+    "/usr/share/applications/virtualbox.desktop",
+    "/usr/share/applications/org.gnome.font-viewer.desktop",
     "/usr/share/applications/org.gnome.Calculator.desktop",
-    "/usr/share/applications/libreoffice-calc.desktop",
-    "/usr/share/applications/google-chrome.desktop"
+    "/usr/share/applications/google-chrome.desktop",
+    "/usr/share/applications/brave-origin.desktop",
+    "/usr/share/applications/org.kde.kdeconnect.nonplasma.desktop",
+    "/usr/share/applications/org.gnome.Papers.desktop",
+    "/usr/share/applications/gparted.desktop",
+    "/usr/share/applications/dev.zed.Zed.desktop",
+    "/usr/share/applications/libreoffice-calc.desktop"
   ]
 }
