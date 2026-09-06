@@ -15,7 +15,7 @@ capsule_thickness = 0.80999998562037945
 center = [ "clipboard", "clock", "notifications" ]
 concave_edge_corners = false
 contact_shadow = true
-end = [ "tray", "group:g1", "group:g2", "battery", "control-center", "session" ]
+end = [ "tray", "group:g1", "group:g2", "battery", "control-center" ]
 font_family = "JetBrainsMono NF"
 font_weight = 400
 margin_ends = 0
@@ -106,8 +106,31 @@ concave_edge_corners = false
 radius = 54
 reserve_space = false
 
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = true
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 660.0
+
 [location]
 address = "Lahore, Pakistan"
+auto_locate = true
+
+[lockscreen]
+blur_intensity = 0.61999998614192009
+tint_intensity = 0.37999999150633812
 
 [lockscreen_widgets]
 enabled = true
@@ -191,6 +214,8 @@ enabled = [ "kenn/keybind-cheatsheet" ]
 
 [shell]
 avatar_path = "/home/abdurehman/.face.png"
+clipboard_auto_paste = "off"
+clipboard_history_max_entries = 200
 font_family = "JetBrainsMono NF"
 password_style = "random"
 polkit_agent = true
@@ -263,12 +288,16 @@ settings_window_translucent = true
         shortcut = "6"
         variant = "destructive"
 
+[storage]
+key_file = "/home/abdurehman/.keys/noctalia-storage-key"
+key_source = "file"
+
 [theme]
 source = "wallpaper"
 
     [theme.templates]
     builtin_ids = [ "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "qt" ]
-    community_ids = [ "brave", "zed", "fastfetch", "hyprtoolkit", "tmux" ]
+    community_ids = [ "brave-origin", "gimp", "zed", "fastfetch", "hyprtoolkit", "bat", "tmux" ]
 
 [wallpaper]
 directory = "/home/abdurehman/Pictures/Wallpapers"
@@ -277,13 +306,13 @@ transition = [ "disc", "honeycomb", "stripes", "wipe" ]
 transition_on_startup = true
 
     [wallpaper.default]
-    path = "/home/abdurehman/Pictures/Wallpapers/3840-x-2485-v0-nvuz4vgcmkhh1.webp"
+    path = "/home/abdurehman/Pictures/Wallpapers/wallpaperflare.com_wallpaper (1).jpg"
 
     [wallpaper.last]
-    path = "/home/abdurehman/Pictures/Wallpapers/3840-x-2485-v0-nvuz4vgcmkhh1.webp"
+    path = "/home/abdurehman/Pictures/Wallpapers/wallpaperflare.com_wallpaper (1).jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/abdurehman/Pictures/Wallpapers/3840-x-2485-v0-nvuz4vgcmkhh1.webp"
+    path = "/home/abdurehman/Pictures/Wallpapers/wallpaperflare.com_wallpaper (1).jpg"
 
 [widget.audio_visualizer]
 bands = 19
@@ -297,6 +326,10 @@ font_family = "AlQalam Taj Nastaleeq"
 format = "{:%-I:%M  %p %t %a %d  %h،  %Y}"
 scale = 1.2000000000000002
 timezone = "Asia/Karachi"
+
+[widget.launcher]
+custom_image = "/home/abdurehman/Pictures/.arch.png"
+custom_image_colorize = true
 
 [widget.sysmon]
 stat = "ram_used"

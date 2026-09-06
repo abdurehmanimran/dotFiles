@@ -22,3 +22,5 @@
 !.local/state
 !.local/state/noctalia/
 !.local/state/noctalia/**
+!.local/state/noctalia/settings.toml
+!.local/state/noctalia/state.toml
