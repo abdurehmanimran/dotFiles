@@ -4,6 +4,8 @@
 !.gitignore
 !.config/
 !.config/starship.toml
+!Wallpapers/
+!Wallpapers/**
 
 # Ghostty
 !.config/ghostty
