@@ -9,9 +9,9 @@ hl.monitor({
 -- For any future external monitor use
 hl.monitor({
 	output = "",
-	mode = "1920x1080@60",
+	mode = "",
 	position = "0x0",
-	scale = 1,
+	scale = "1",
 	mirror = "eDP-1",
 })
 
@@ -199,9 +199,6 @@ hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ direction = "right" 
 hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.move({ direction = "up" }))
 hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.move({ direction = "down" }))
 
--- Window Switching
-hl.bind("ALT + TAB", hl.dsp.exec_cmd("noctalia msg window-switcher"))
-
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
@@ -241,6 +238,23 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
+-- Apps and Command Bindings
+hl.bind(mainMod .. " + SHIFT + T", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("ghostty"))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("dolphin"))
+
+-- Noctalia v5
+hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
+hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher /emo"))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center"))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("noctalia msg panel-toggle wallpaper"))
+
+-- Window Switching
+hl.bind("ALT + TAB", hl.dsp.exec_cmd("noctalia msg window-switcher"))
+
 -- Monitor Brightness Bindings
 hl.bind(
 	"XF86MonBrightnessUp",
@@ -254,19 +268,6 @@ hl.bind(
 	hl.dsp.exec_cmd("noctalia msg brightness-down"),
 	{ locked = true, repeating = true }
 )
-
--- Apps and Command Bindings
-hl.bind(mainMod .. " + SHIFT + T", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("ghostty"))
-hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("dolphin"))
-
--- Noctalia v5
-hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
-hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher /emo"))
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("noctalia msg panel-toggle session"))
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("noctalia msg panel-toggle control-center"))
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("noctalia msg panel-toggle wallpaper"))
 
 -- Noctalia v4
 -- hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("qs -c noctalia-shell ipc call launcher clipboard"))
