@@ -16,6 +16,7 @@ background-blur = true
 background-blur-radius = 52
 window-save-state = always
 
+
 # Cursor Configuration
 cursor-style = block
 cursor-style-blink = true
