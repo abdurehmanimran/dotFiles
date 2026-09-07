@@ -1,0 +1,74 @@
+{
+  "logo": {
+    "width": 30,
+    "type": "small",
+    "padding": {
+      "top": 3,
+      "left": 6,
+      "right": 3,
+    },
+    "color": {
+      "1": "red",
+    },
+  },
+  "display": {
+    "separator": " ",
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": "\n\n",
+    },
+    {
+      "type": "os",
+      "key": "{#31}    distro  {#}",
+    },
+    {
+      "type": "kernel",
+      "key": "{#35}    kernel  󰏗{#}",
+    },
+    {
+      "type": "packages",
+      "key": "{#33}  packages  󰏖{#}",
+    },
+    {
+      "type": "wm",
+      "key": "{#32}        wm  󱂬{#}",
+    },
+    {
+      "type": "shell",
+      "key": "{#32}     shell  {#}",
+    },
+    {
+      "type": "terminal",
+      "key": "{#36}  terminal  {#}",
+    },
+    {
+      "type": "cpu",
+      "key": "{#32}       cpu  {#}",
+      "format": "@ {freq-max}",
+    },
+    {
+      "type": "memory",
+      "key": "{#32}       ram  󰍛{#}",
+      "format": "{used} ({percentage})",
+    },
+    {
+      "type": "gpu",
+      "key": "{#33}       gpu  󰢮{#}",
+      "format": "{name} [{type}]",
+    },
+    {
+      "type": "display",
+      "key": "{#35}   display  󰍹{#}",
+    },
+    {
+      "type": "uptime",
+      "key": "{#31}    uptime  󱎫{#}",
+    },
+    {
+      "type": "custom",
+      "format": "\n\n",
+    },
+  ],
+}

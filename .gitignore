@@ -7,6 +7,10 @@
 !Wallpapers/
 !Wallpapers/**
 
+# Fastfetch
+!.config/fastfetch
+!.config/fastfetch/**
+
 # Ghostty
 !.config/ghostty
 !.config/ghostty/**

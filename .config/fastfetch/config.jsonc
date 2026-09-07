@@ -1,0 +1,80 @@
+//   _____ _____ _____ _____ _____ _____ _____ _____ _____
+//  |   __|  _  |   __|_   _|   __|   __|_   _|     |  |  |
+//  |   __|     |__   | | | |   __|   __| | | |   --|     |
+//  |__|  |__|__|_____| |_| |__|  |_____| |_| |_____|__|__|
+
+{
+  "logo": {
+    "type": "small",
+    "padding": {
+      "top": 5,
+      "left": 6,
+      "right": 12,
+    },
+  },
+  "display": {
+    "separator": " ",
+  },
+  "modules": [
+    "break",
+    "break",
+    "break",
+    {
+      "type": "title",
+      "keyWidth": 10,
+      "keyColor": "green",
+    },
+    "break",
+    {
+      "type": "os",
+      "key": " ",
+      "keyColor": "red",
+    },
+    {
+      "type": "kernel",
+      "key": " ",
+      "keyColor": "green",
+    },
+    {
+      "type": "cpu",
+      "key": " {#}",
+      "format": "{code-name} @ {freq-max}",
+    },
+    {
+      "type": "wm",
+      "key": "󱂬 ",
+      "keyColor": "green",
+    },
+    {
+      "type": "packages",
+      "key": "󰏖 {#}",
+      "format": "{pacman} (pacman)",
+    },
+    {
+      "type": "shell",
+      "key": " ",
+      "keyColor": "green",
+    },
+    {
+      "type": "terminal",
+      "key": " ",
+    },
+    {
+      "type": "terminalfont",
+      "key": " ",
+      "keyColor": "green",
+    },
+    {
+      "type": "uptime",
+      "key": " ",
+      "keyColor": "red",
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "\u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m",
+    },
+    "break",
+    "break",
+  ],
+}
