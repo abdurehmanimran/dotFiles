@@ -152,6 +152,10 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "snappy"
 
 -- Mouse & Touchpad
 hl.config({
+	render = {
+		direct_scanout = 2, -- auto for games
+	},
+
 	input = {
 		kb_layout = "us,pk,ara",
 		kb_variant = ", pak_urdu_phonetic, mac-phonetic",
@@ -164,6 +168,7 @@ hl.config({
 
 		touchpad = {
 			natural_scroll = true,
+			disable_while_typing = true,
 		},
 	},
 })
@@ -214,7 +219,7 @@ hl.bind("Print", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
 -- Media Keys Bindings
 hl.bind(
 	"XF86AudioRaiseVolume",
-	hl.dsp.exec_cmd("wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"),
+	hl.dsp.exec_cmd("wpctl set-volume -l 1.7 @DEFAULT_AUDIO_SINK@ 5%+"),
 	{ locked = true, repeating = true }
 )
 hl.bind(
