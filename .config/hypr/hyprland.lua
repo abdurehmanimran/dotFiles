@@ -1,22 +1,56 @@
 -- Monitor Configuration
-hl.monitor({
-	output = "eDP-1",
-	mode = "preferred",
-	position = "0x0",
-	scale = "1",
-})
+-- hl.monitor({
+-- 	output = "eDP-1",
+-- 	mode = "preferred",
+-- 	position = "0x0",
+-- 	scale = "1",
+-- })
+--
+-- -- For any future external monitor use
+-- hl.monitor({
+-- 	output = "",
+-- 	mode = "",
+-- 	position = "0x0",
+-- 	scale = "1",
+-- 	mirror = "eDP-1",
+-- })
 
--- For any future external monitor use
-hl.monitor({
-	output = "",
-	mode = "",
-	position = "0x0",
-	scale = "1",
-	mirror = "eDP-1",
-})
+-- ~/.config/hypr/hyprland.lua
+--
+
+local INTERNAL = "eDP-1"
+
+hl.monitor({ output = INTERNAL, mode = "preferred", position = "0x0", scale = 1 })
+
+-- When an external display gets connected
+hl.on("monitor.added", function(m)
+	if m.name == INTERNAL then
+		return
+	end
+
+	hl.monitor({ output = m.name, mode = "preferred", position = "0x0", scale = 1.5 })
+
+	hl.monitor({
+		output = INTERNAL,
+		mode = "preferred",
+		position = "auto",
+		scale = 1.5,
+		mirror = m.name,
+	})
+end)
+
+-- When an external display gets removed
+hl.on("monitor.removed", function(m)
+	if m.name == INTERNAL then
+		return
+	end
+
+	hl.monitor({ output = INTERNAL, mode = "preferred", position = "0x0", scale = 1 })
+end)
 
 -- Environmental Vars
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+hl.env("GDK_WAYLAND_DISABLE", "ext_background_effect_manager_v1") -- Ghostty Blur Fix
 hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
@@ -30,9 +64,18 @@ hl.env("HYPRSHOT_DIR", "/home/abdurehman/Pictures/Screenshots")
 hl.window_rule({
 	match = {
 		class = "brave-origin",
-		workspace = "0",
+		workspace = "1",
 	},
 	rounding = 0,
+})
+
+hl.window_rule({
+	match = {
+		class = "com.mitchellh.ghostty",
+	},
+	float = 1,
+	size = { 1200, 800 },
+	move = { 250, 100 },
 })
 
 -- Apps that should open in floating mode not tiled
@@ -59,8 +102,7 @@ hl.window_rule({
 })
 
 -- Workspace Rules
-hl.workspace_rule({ workspace = "0", gaps_in = 0, gaps_out = 0 }) -- Special for Workspace 1
-hl.workspace_rule({ workspace = "1", persistent = true })
+hl.workspace_rule({ workspace = "1", gaps_in = 0, gaps_out = 0 }) -- Special for Workspace 1
 hl.workspace_rule({ workspace = "2", persistent = true })
 hl.workspace_rule({ workspace = "3", persistent = true })
 hl.workspace_rule({ workspace = "4", persistent = true })
@@ -106,12 +148,14 @@ hl.config({
 		blur = {
 			enabled = true,
 			size = 2,
+			variant = "frost",
 			passes = 4,
 			vibrancy = 0.2696,
 			popups = true,
 			new_optimizations = true,
-			ignore_opacity = true,
 		},
+
+		wobble = { enabled = true },
 	},
 
 	animations = {
@@ -129,7 +173,7 @@ hl.config({
 hl.layer_rule({
 	name = "noctalia",
 	match = {
-		namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|background-.*)$",
+		namespace = "noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|background-.*)$",
 	},
 	no_anim = true,
 	ignore_alpha = 0.4,
@@ -168,7 +212,7 @@ hl.config({
 
 		touchpad = {
 			natural_scroll = true,
-			disable_while_typing = true,
+			disable_while_typing = false,
 		},
 	},
 })
@@ -308,6 +352,31 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("kdeconnectd")
 	hl.exec_cmd("wayneko --layer top --follow-pointer true")
 	hl.exec_cmd("brave-origin", { workspace = 0 })
+end)
+
+local workspace_programs = {
+	["2"] = { "ghostty", { float = true } },
+}
+
+hl.on("workspace.created", function(ws)
+	if ws.is_empty then
+		return
+	end
+
+	local program = workspace_programs[ws.name]
+	if program == nil then
+		return
+	end
+
+	local cmd, rules = table.unpack(program)
+	-- shallow-copy the rules table so we can add the workspace to it
+	local rules2 = {}
+	for k, v in rules do
+		rules2[k] = v
+	end
+	rules2.workspace = ws.name .. " silent"
+	-- run it!
+	hl.exec_cmd(cmd, rules2)
 end)
 
 -- For Noctalia Color templates

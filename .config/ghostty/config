@@ -2,18 +2,19 @@
 command = "bicon sa"
 
 # Font Configuration
-font-size = 16
+font-size = 17
 # font-family = "JetBrainsMono NF SemiBold"
 font-family = "IosevkaCustom"
+font-style= "Oblique"
 # font-family = "Comic Mono"
 # Window Configuration
 # window-decoration = true
 maximize = true
 window-padding-x = 5
 window-padding-y = 0
-background-opacity = 0.83
+background-opacity = 0.85
 background-blur = true
-background-blur-radius = 52
+background-blur-radius = 38
 window-save-state = always
 
 
