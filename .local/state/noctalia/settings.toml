@@ -1,4 +1,4 @@
-config_version = 13
+config_version = 16
 
 [accessibility]
 ui_scale = 1.0500000081956387
@@ -12,10 +12,10 @@ capsule = true
 capsule_opacity = 0.63999998569488525
 capsule_padding = 9.0
 capsule_thickness = 0.80999998562037945
-center = [ "clipboard", "clock", "notifications" ]
+center = [ "bar", "clock" ]
 concave_edge_corners = false
 contact_shadow = true
-end = [ "tray", "group:g1", "group:g2", "battery", "control-center" ]
+end = [ "tray", "group:g1", "group:g2", "battery", "widget", "notifications" ]
 font_family = "JetBrainsMono NF"
 font_weight = 400
 margin_ends = 0
@@ -30,7 +30,7 @@ thickness = 45
     accordion = false
     accordion_direction = "end"
     enabled = true
-    fill = "surface_variant"
+    fill = "surface_container"
     id = "g1"
     members = [ "temp", "cpu", "ram", "network_rx" ]
     opacity = 0.47999998927116394
@@ -40,7 +40,7 @@ thickness = 45
     accordion = false
     accordion_direction = "end"
     enabled = true
-    fill = "surface_variant"
+    fill = "surface_container"
     id = "g2"
     members = [ "network", "bluetooth", "volume", "brightness" ]
     opacity = 0.47999998927116394
@@ -64,8 +64,8 @@ widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-000000000000
     [desktop_widgets.widget.desktop-widget-0000000000000001]
     box_height = 256.0
     box_width = 432.0
-    cx = 1541.0
-    cy = 270.0
+    cx = 1616.0
+    cy = 636.0
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -84,8 +84,8 @@ widget_order = [ "desktop-widget-0000000000000001", "desktop-widget-000000000000
     [desktop_widgets.widget.desktop-widget-0000000000000002]
     box_height = 0.0
     box_width = 0.0
-    cx = 1541.0
-    cy = 398.0
+    cx = 1616.5
+    cy = 762.0
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -126,11 +126,12 @@ behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
 
 [location]
 address = "Lahore, Pakistan"
-auto_locate = true
 
 [lockscreen]
 blur_intensity = 0.61999998614192009
 tint_intensity = 0.37999999150633812
+transition = [ "disc", "golden", "honeycomb", "melt", "pixel" ]
+transition_duration = 600
 
 [lockscreen_widgets]
 enabled = true
@@ -144,9 +145,9 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
-    box_width = 810.0
+    box_width = 768.0
     cx = 960.0
-    cy = 898.0
+    cy = 878.0
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -154,9 +155,9 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-        background_color = "surface_variant"
-        background_opacity = 0.88
-        background_radius = 12.0
+        background_color = "surface_container"
+        background_opacity = 0.87
+        background_radius = 11.0
         center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
@@ -172,7 +173,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 256.0
     box_width = 576.0
-    cx = 976.0
+    cx = 960.0
     cy = 276.0
     output = "eDP-1"
     placement_height = 1080.0
@@ -189,7 +190,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
     box_height = 112.0
     box_width = 320.0
-    cx = 976.0
+    cx = 960.0
     cy = 404.0
     output = "eDP-1"
     placement_height = 1080.0
@@ -205,12 +206,24 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
 
 [osd]
 background_opacity = 0.69999998435378075
-offset_y = 40
+border_color = "surface_container"
+follow_focused_output = true
+hide_delay_ms = 1200
+offset_y = 50
 position = "bottom_center"
-scale = 1.0500000081956387
+scale = 1.1000000089406967
+
+[plugin_settings."ycf/mawaqit"]
+city = "Lahore"
+country = "PK"
+hijriDayOffset = "-1"
+method = "1"
+panel_placement = "attached"
+school = "1"
+twelveHourFormat = true
 
 [plugins]
-enabled = [ "kenn/keybind-cheatsheet" ]
+enabled = [ "kenn/keybind-cheatsheet", "alexander/screen-toolkit", "ycf/mawaqit" ]
 
 [shell]
 avatar_path = "/home/abdurehman/.face.png"
@@ -227,7 +240,10 @@ settings_window_translucent = true
     "Urdu (Pak Urdu Phonetic)" = "Urd"
 
     [shell.launcher]
+    category_icons_only = true
     pinned = [ "brave-origin", "com.mitchellh.ghostty", "org.kde.dolphin" ]
+    search_position = "top"
+    width = 650
 
     [shell.panel]
     borders = false
@@ -240,6 +256,7 @@ settings_window_translucent = true
     [shell.screenshot]
     confirm_region = true
     directory = "/home/abdurehman/Pictures/Screenshots"
+    remember_last_region = true
 
     [shell.session]
     grid = true
@@ -288,44 +305,67 @@ settings_window_translucent = true
         shortcut = "6"
         variant = "destructive"
 
+        [[shell.session.actions]]
+        action = "command"
+        command = "notify-send 'Noctalia' 'Custom session entry'"
+        countdown_seconds = 0.0
+        enabled = false
+        variant = "default"
+
+    [shell.shadow]
+    direction = "down_right"
+
 [storage]
 key_file = "/home/abdurehman/.keys/noctalia-storage-key"
 key_source = "file"
 
 [theme]
+mode = "dark"
 source = "wallpaper"
+wallpaper_scheme = "m3-content"
 
     [theme.templates]
-    builtin_ids = [ "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "qt" ]
+    builtin_ids = [ "gtk3", "gtk4", "ghostty", "hyprland", "kcolorscheme", "kitty", "qt" ]
     community_ids = [ "brave-origin", "gimp", "zed", "fastfetch", "hyprtoolkit", "bat", "tmux" ]
 
 [wallpaper]
 directory = "/home/abdurehman/Pictures/Wallpapers"
 fill_mode = "span"
-transition = [ "disc", "honeycomb", "stripes", "wipe" ]
+transition = [ "disc", "golden", "honeycomb", "melt", "pixel" ]
 transition_on_startup = true
 
     [wallpaper.default]
-    path = "/home/abdurehman/Pictures/Wallpapers/wallpaperflare.com_wallpaper (1).jpg"
+    path = "/home/abdurehman/Pictures/Wallpapers/i0eUZ6q.webp"
 
     [wallpaper.last]
-    path = "/home/abdurehman/Pictures/Wallpapers/wallpaperflare.com_wallpaper (1).jpg"
+    path = "/home/abdurehman/Pictures/Wallpapers/i0eUZ6q.webp"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/abdurehman/Pictures/Wallpapers/wallpaperflare.com_wallpaper (1).jpg"
+    path = "/home/abdurehman/Pictures/Wallpapers/i0eUZ6q.webp"
+
+    [[wallpaper.favorite]]
+    path = "/home/abdurehman/Pictures/Wallpapers/hut.webp"
 
 [widget.audio_visualizer]
 bands = 19
 width = 115
 
+[widget.bar]
+showCountdown = false
+type = "ycf/mawaqit:bar"
+
 [widget.brightness]
 show_label = false
 
 [widget.clock]
+anchor = true
 font_family = "AlQalam Taj Nastaleeq"
 format = "{:%-I:%M  %p %t %a %d  %h،  %Y}"
 scale = 1.2000000000000002
 timezone = "Asia/Karachi"
+
+[widget.cpu]
+enabled = false
 
 [widget.launcher]
 custom_image = "/home/abdurehman/Pictures/.arch.png"
@@ -336,6 +376,9 @@ stat = "ram_used"
 
 [widget.volume]
 show_label = false
+
+[widget.widget]
+type = "alexander/screen-toolkit:widget"
 
 [widget.workspaces]
 font_family = "JetBrainsMono NF"

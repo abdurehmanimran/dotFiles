@@ -1,5 +1,12 @@
+[screenshot]
+last_region = "277,335,724,553"
+
 [security_migrations]
 calendar_credentials_v1 = true
+
+[theme_templates]
+applied_builtin_ids = "ghostty gtk3 gtk4 hyprland kcolorscheme kitty qt"
+applied_community_ids = "bat brave-origin fastfetch gimp hyprtoolkit tmux zed"
 
 [wallpaper_panel]
 flatten = true
