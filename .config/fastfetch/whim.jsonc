@@ -1,0 +1,101 @@
+// ~/.config/fastfetch/config.jsonc
+//
+// Recreates the "parchment archer" rice from the screenshot:
+//   - Custom image logo (rendered via kitty's icat protocol — only
+//     works in kitty / wezterm / konsole, NOT a generic ASCII logo)
+//   - No box/border characters — clean two-column key/value layout
+//   - Per-module icon + color to mimic: orange distro/packages/gpu,
+//     purple kernel, green wm/shell, blue terminal, red uptime
+//
+// Icons require a Nerd Font (e.g. FiraCode Nerd Font, JetBrainsMono
+// Nerd Font) set in your terminal — that's what renders the glyphs
+// like the tux, package box, monitor, and clock symbols.
+
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+  "logo": {
+    // Swap this for the path to your own character artwork.
+    // fastfetch will scale it to the given width in terminal cells.
+    "type": "kitty",
+    "source": "~/.config/fastfetch/logo.png",
+    "width": 24,
+    "padding": {
+      "top": 1,
+      "right": 4
+    }
+  },
+
+  "display": {
+    "separator": " ",
+    "color": {
+      "keys": "yellow"
+    }
+  },
+
+  "modules": [
+    "break",
+
+    {
+      "type": "os",
+      "key": " distro",
+      "keyColor": "yellow",
+      "format": "{3} {12}"
+    },
+    {
+      "type": "kernel",
+      "key": " kernel",
+      "keyColor": "magenta",
+      "format": "Linux {3}"
+    },
+    {
+      "type": "packages",
+      "key": "󰏖 packages",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "wm",
+      "key": "󰖲 wm",
+      "keyColor": "green"
+    },
+    {
+      "type": "shell",
+      "key": " shell",
+      "keyColor": "green"
+    },
+    {
+      "type": "terminal",
+      "key": " terminal",
+      "keyColor": "blue"
+    },
+    {
+      "type": "cpu",
+      "key": "󰻠 cpu",
+      "keyColor": "white",
+      "format": "@ {3}"
+    },
+    {
+      "type": "memory",
+      "key": "󰍛 ram",
+      "keyColor": "white"
+    },
+    {
+      "type": "gpu",
+      "key": " gpu",
+      "keyColor": "yellow",
+      "format": "{2} [{3}]"
+    },
+    {
+      "type": "display",
+      "key": "󰍹 display",
+      "keyColor": "white"
+    },
+    {
+      "type": "uptime",
+      "key": "󰅐 uptime",
+      "keyColor": "red"
+    },
+
+    "break"
+  ]
+}
